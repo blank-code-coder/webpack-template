@@ -1,23 +1,18 @@
-import "./styles.css";
-import { loadHomePage } from './home.js';
-import { loadMenuPage } from './menu.js';
-import { loadAboutPage } from './about.js';
+import './styles/main.css';
+import { exampleFunction, createWelcomeMessage } from './modules/example';
 
-// Initialize the page and set up event listeners
-function initializePage() {
-  // Load home page by default
-  loadHomePage();
-  
-  // Get all navigation buttons
-  const homeBtn = document.querySelector('nav button:nth-child(1)');
-  const menuBtn = document.querySelector('nav button:nth-child(2)');
-  const aboutBtn = document.querySelector('nav button:nth-child(3)');
-  
-  // Add event listeners
-  homeBtn.addEventListener('click', loadHomePage);
-  menuBtn.addEventListener('click', loadMenuPage);
-  aboutBtn.addEventListener('click', loadAboutPage);
+// Initialize the application
+function init() {
+    console.log('🚀 Webpack template is working!');
+    
+    // Call example function
+    exampleFunction();
+    
+    // Create welcome message
+    const content = document.getElementById('content');
+    const welcomeDiv = createWelcomeMessage();
+    content.appendChild(welcomeDiv);
 }
 
-// Wait for DOM to load then initialize
-document.addEventListener('DOMContentLoaded', initializePage);
+// Start the app when DOM is loaded
+document.addEventListener('DOMContentLoaded', init);
